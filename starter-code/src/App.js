@@ -1,18 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import foods from './foods.json'
+import FoodBox from './Components/FoodBox';
+import "bulma/css/bulma.css"
+import FoodForm from './Components/FoodForm';
+
+
+const foodsfoods =(foods)=> foods.map((x) => {
+  return <FoodBox data={x}/>
+} ) 
 
 class App extends Component {
+  state = {
+    foods: foodsfoods(foods)
+  }
+
+  addFood = food => {
+    let foodCopy = [...foods]
+    foodCopy.unshift(food)
+    this.setState({foods: foodsfoods(foodCopy)}) 
+    console.log(foodCopy)
+  }
+  
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <h1 class="title is-1">IronNutrition</h1>
+        <FoodForm addFood={this.addFood}/>
+        {foodsfoods}
       </div>
     );
   }

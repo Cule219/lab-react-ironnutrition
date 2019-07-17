@@ -14,7 +14,7 @@ export class FoodForm extends Component {
 
     const newFood = {
       name: this.state.name,
-      pictureUrl: this.state.image,
+      image: this.state.image,
       calories: Number(this.state.calories),
       quantity: 0
     };
@@ -55,16 +55,16 @@ export class FoodForm extends Component {
       type="number" 
       name="calories" 
       id="calories"
-      value={this.state.calories}/>/>
+      value={this.state.calories}/>
 
-      <label htmlFor="image">ImageURL: </label>
+      <label htmlFor="image"> ImageURL: </label>
       <input onChange={this.handleChange}
       type="text" 
       name="image" 
       id="image"
       value={this.state.image}/>
 
-      <button type="submit">Submit</button>
+      <button type="submit" onClick={this.props.clickMe}>Submit</button>
       </form>
     )
   }

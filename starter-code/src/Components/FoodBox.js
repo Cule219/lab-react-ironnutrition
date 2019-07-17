@@ -24,7 +24,8 @@ export class FoodBox extends Component {
           <input
             className="input"
             type="number"
-            value="0"   
+            // value="0"   
+            // onChange = {changeHandler}
           />
         </div>
         <div className="control">
